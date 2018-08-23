@@ -29,7 +29,7 @@ describe('websockets', () => {
       wss.close()
     }
 
-    const conf = { wsServer: 'ws://localhost:8888' }
+    const conf = { url: 'ws://localhost:8888' }
     const ws = new MWsHive(conf)
 
     ws.on('open', () => {
