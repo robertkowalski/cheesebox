@@ -3,15 +3,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import ErrorBox from '../common/errorbox.jsx'
-
 import {
   setPositions
 } from '../actions.js'
 
 const TablePositions = (props) => {
   const rows = props.data.map((el, i) => {
-    const [symbol, status, amount, basePrice] = el
+    const [symbol, , amount, basePrice] = el
 
     return (
       <tr key={i}>
@@ -59,7 +57,6 @@ class PositionsContainer extends Component {
     const { dispatch } = this.props
 
     this.client.onManagedPositionsUpdate({}, (positions) => {
-
       dispatch(
         setPositions(positions)
       )
@@ -82,7 +79,6 @@ class PositionsContainer extends Component {
     )
   }
 }
-
 
 function mapStateToProps (state) {
   const {
